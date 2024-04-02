@@ -6,6 +6,7 @@ on:
             - stage
         paths:
             - terraform/**
+            - .github/**
     pull_request:
         branches:
             - main
@@ -37,7 +38,7 @@ jobs:
 
           - name: terraform init
             id: init
-            run: terraform init -backend-config="buckeyt=$BUCKET_TF_STATE"
+            run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
 
           - name: terraform fmt
             id: fmt
